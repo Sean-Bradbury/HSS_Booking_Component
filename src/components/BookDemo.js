@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import { FaCalendarDay } from 'react-icons/fa';
 import 'react-calendar/dist/Calendar.css';
+import TimeSlotItem from './TimeSlotItem';
 
 function BookDemo(){
 
-  const [date, setDate] = useState(new Date('2021-06-11'));
+  const [date, setDate] = useState(new Date());
 
   const selectDate = date => {
     setDate(date)
@@ -44,6 +45,19 @@ function BookDemo(){
     });    
   }  
 
+  const timeSlotsAvailable = ['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];
+
+  const theTimeSlots = timeSlotsAvailable
+    .map(time => {
+      return (
+        <TimeSlotItem 
+          key={time}
+          time={time}
+          savePreferredTime={savePreferredTime}
+        />
+      )
+    })
+
   return (
     <div id="book-demo-wrapper">
       
@@ -56,7 +70,7 @@ function BookDemo(){
           value={date}
         />
 
-        {preferredTime && <p className="p-2">You have chosen the: {date.toDateString()} at {preferredTime}</p>}
+        {preferredTime && <p className="p-2">You have chosen: {date.toDateString()} at {preferredTime}</p>}
       </div>
 
       <div className="book-demo-b">
@@ -77,17 +91,7 @@ function BookDemo(){
           <div className="content-box">          
             <div className="scrollbox">          
               <ul className="time-slots-list">
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="08:00">08:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="09:00">09:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="10:00">10:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="11:00">11:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="12:00">12:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="13:00">13:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="14:00">14:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="15:00">15:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="16:00">16:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="17:00">17:00</button></li>
-                <li className="time-slots-list-item"><button className="time-slot-button" onClick={savePreferredTime} value="18:00">18:00</button></li>
+                {theTimeSlots}
               </ul>
             </div>
           </div>
