@@ -1,0 +1,238 @@
+:root {
+  --color-blue: #0188d0;
+  --color-yellow: #ffd800;
+  --color-lightGray: #b9c6d4;
+  --color-black: #424242;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+// Scrollbar
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-black);
+}
+
+// Utilities
+.p-2 {
+  padding: 20px 0;
+}
+
+.pb-2 {
+  padding-bottom: 20px;
+}
+
+// Book demo component
+
+#book-demo-wrapper {
+  display: flex;
+  width: 900px;
+
+  .book-demo-a,
+  .book-demo-b {
+    padding: 30px;
+  }
+
+  .book-demo-a {
+    text-align: center;
+    flex-basis: 60%;
+    background-color: var(--color-blue);
+    color: #ffffff;
+
+    .demo-icon {
+      padding: 30px 0px;
+      position: relative;
+      color: var(--color-blue);
+      z-index: 1;
+      &::before {
+        content: '';
+        position: absolute;
+        background-color: var(--color-yellow);
+        height: 80px;
+        width: 80px;
+        left: 50%;
+        margin-left: -40px;
+        margin-top: -15px;
+        z-index: -1;
+        border-radius: 50%;
+
+      }
+    }
+
+    .react-calendar {
+      background: none;
+      border: none;
+      width: 100%;
+      button {
+        color: #ffffff;
+        border: none;
+        font-size: 16px;
+        &:focus {
+          outline: none;
+        }
+        &.react-calendar__tile:hover {
+          background-color: var(--color-yellow);
+          opacity: 0.9;
+        }
+        &.react-calendar__tile--now {
+          background-color: var(--color-black);
+        }
+        &.react-calendar__tile--active {
+          background-color: var(--color-yellow);
+        }
+      }
+
+
+
+      .react-calendar__navigation {
+        margin-bottom: 20px;
+
+        .react-calendar__navigation__label {
+          font-size: 30px;
+        }
+
+        .react-calendar__navigation__arrow {
+          font-size: 30px;
+        }
+
+        .react-calendar__navigation__label:hover,
+        .react-calendar__navigation__next-button:hover,
+        .react-calendar__navigation__prev-button:hover,
+        .react-calendar__navigation__label:focus,
+        .react-calendar__navigation__next-button:focus,
+        .react-calendar__navigation__prev-button:focus {
+          background: none;
+        }
+
+        .react-calendar__navigation__next2-button,
+        .react-calendar__navigation__prev2-button {
+          display: none;
+        }
+      }
+      .react-calendar__month-view__weekdays__weekday {
+        padding: 10px;
+        abbr {
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 18px;
+          font-weight: bold;
+
+        }
+      }
+    }
+  }
+}
+
+  .book-demo-b {
+    flex-basis: 40%;
+    background-color: var(--color-lightGray);
+    color: var(--color-black);
+    .book-demo-form {
+      &-group {
+        padding: 5px 0;
+        label {
+          font-weight: bold;
+        }
+        input {
+          width: 100%;
+          padding: 10px;
+          margin-top: 8px;
+          border: none;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .scrollbox {
+        height: 250px;
+        max-height: 550px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        .time-slots-list {
+          list-style: none;
+          &-item {
+            display: block;
+            width: 100%;
+            border: none;
+            .time-slot-button {
+              padding: 15px;
+              width: 100%;
+              border: none;
+              cursor: pointer;
+              &.active {
+                background-color: var(--color-yellow);
+              }
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+        }
+      }
+      &-button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: var(--color-yellow);
+        color: var(--color-black);
+        border: 0;
+        &:focus {
+          outline: none;
+          transform: scale(1.01);
+        }
+      }
+    }
+  }
+
+  // Mobile
+  @media (max-width: 500px) {
+    #book-demo-wrapper {
+      flex-direction: column;
+      width: 100%;
+      .react-calendar {
+        .react-calendar__month-view__weekdays__weekday {
+          abbr {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px !important;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+

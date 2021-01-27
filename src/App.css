@@ -1,38 +1,258 @@
-.App {
-  text-align: center;
+:root {
+  --color-blue: #0188d0;
+  --color-yellow: #ffd800;
+  --color-lightGray: #b9c6d4;
+  --color-black: #424242;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  font-size: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-black);
+}
+
+.p-2 {
+  padding: 20px 0;
+}
+
+.pb-2 {
+  padding-bottom: 20px;
+}
+
+#book-demo-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 900px;
+}
+
+#book-demo-wrapper .book-demo-a,
+#book-demo-wrapper .book-demo-b {
+  padding: 30px;
+}
+
+#book-demo-wrapper .book-demo-a {
+  text-align: center;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+  background-color: var(--color-blue);
+  color: #ffffff;
+}
+
+#book-demo-wrapper .book-demo-a .demo-icon {
+  padding: 30px 0px;
+  position: relative;
+  color: var(--color-blue);
+  z-index: 1;
+}
+
+#book-demo-wrapper .book-demo-a .demo-icon::before {
+  content: '';
+  position: absolute;
+  background-color: var(--color-yellow);
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: -15px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar {
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar button {
+  color: #ffffff;
+  border: none;
+  font-size: 16px;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar button:focus {
+  outline: none;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar button.react-calendar__tile:hover {
+  background-color: var(--color-yellow);
+  opacity: 0.9;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar button.react-calendar__tile--now {
+  background-color: var(--color-black);
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar button.react-calendar__tile--active {
+  background-color: var(--color-yellow);
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation {
+  margin-bottom: 20px;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__label {
+  font-size: 30px;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__arrow {
+  font-size: 30px;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__label:hover,
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__next-button:hover,
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__prev-button:hover,
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__label:focus,
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__next-button:focus,
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__prev-button:focus {
+  background: none;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__next2-button,
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__navigation .react-calendar__navigation__prev2-button {
+  display: none;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__month-view__weekdays__weekday {
+  padding: 10px;
+}
+
+#book-demo-wrapper .book-demo-a .react-calendar .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.book-demo-b {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  background-color: var(--color-lightGray);
+  color: var(--color-black);
+}
+
+.book-demo-b .book-demo-form-group {
+  padding: 5px 0;
+}
+
+.book-demo-b .book-demo-form-group label {
+  font-weight: bold;
+}
+
+.book-demo-b .book-demo-form-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: none;
+}
+
+.book-demo-b .book-demo-form-group input:focus {
+  outline: none;
+}
+
+.book-demo-b .book-demo-form .scrollbox {
+  height: 250px;
+  max-height: 550px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.book-demo-b .book-demo-form .scrollbox .time-slots-list {
+  list-style: none;
+}
+
+.book-demo-b .book-demo-form .scrollbox .time-slots-list-item {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+.book-demo-b .book-demo-form .scrollbox .time-slots-list-item .time-slot-button {
+  padding: 15px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.book-demo-b .book-demo-form .scrollbox .time-slots-list-item .time-slot-button.active {
+  background-color: var(--color-yellow);
+}
+
+.book-demo-b .book-demo-form .scrollbox .time-slots-list-item .time-slot-button:focus {
+  outline: none;
+}
+
+.book-demo-b .book-demo-form-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  border: 0;
+}
+
+.book-demo-b .book-demo-form-button:focus {
+  outline: none;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+@media (max-width: 500px) {
+  #book-demo-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+  #book-demo-wrapper .react-calendar .react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px !important;
+    font-weight: bold;
   }
 }
+/*# sourceMappingURL=App.css.map */
